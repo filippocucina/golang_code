@@ -1,0 +1,3 @@
+go run file.go - to execute the code without creating a executable file
+go build file.go - to create a executable code
+./file - to run the code
