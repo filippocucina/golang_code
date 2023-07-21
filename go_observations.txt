@@ -23,8 +23,42 @@ Todo eso es para mantener una buena practica y un estilo consistente en los proy
 
 Many text editors can be configured to run gofmt each time you save a file, si that your source code is always properly formatted. A related tool, goimports, addtionally manages the insertion and removal of import declarations as needed. It is not part of the standard distribution but you can obtain it with the this command: go get golang.org/x/tolls/cmd/goimports
 
-Command-line arguments are available to a program in a variable named Args that is part of the OS package, thus its name anywhere outside the os package is or.Args.
+Command-line arguments are available to a program in a variable named Args that is part of the OS package, thus its name anywhere outside the os package is os.Args.
 
 The first element of the or.Args[0], is the name of the command itself; the other elements are the arguments that were presented to the program when it started execution.
 
+os.Args[1:] means we want the values from 1 and onwards.
 
+the := symbol is part of a short variable declaration, a statement that declares one or more variables and gives them appropriate types based on the initializer values.
+
+En resumen, en Go no es válido utilizar --i ni ++i para decrementar o incrementar una variable en los ciclos o en cualquier otra parte del código. Utiliza el operador de asignación compuesta -= o la forma i = i - 1 para decrementar una variable en 1.
+
+Go does not permit unused local  variables, so this would result in a compilation error.
+
+The blank identifier, whose name is _ (that is, underscore), may be used whenever syntax requires a variable name but program logic does not, for instance to discard an unwanted loop index when we require only the element value.
+Most Go programmers would likely use range and _ to write echo programs.
+
+En Go, el identificador en blanco _ se utiliza como un identificador de descarte. A continuación se presentan algunas situaciones en las que puedes encontrarte utilizando el identificador en blanco:
+
+Ignorar un valor de retorno de una función:
+Si una función devuelve múltiples valores, pero solo estás interesado en algunos de ellos y deseas ignorar los demás, puedes utilizar el identificador en blanco para descartar esos valores.
+ example:   value, _ := someFunction() // Ignora el segundo valor de retorno
+
+Ignorar un valor al realizar una asignación:
+En ocasiones, puedes necesitar llamar a una función o realizar una operación que produce un resultado que no necesitas utilizar. En ese caso, puedes asignar el resultado a _ para indicar que el valor se está descartando intencionalmente. Ejemplo:
+_ = someFunction() // Ignora el valor de retorno
+
+Iterar sobre un rango ignorando el índice o el valor:
+Cuando utilizas un bucle for con range para iterar sobre una colección, puedes utilizar el identificador en blanco para indicar que no estás interesado en el índice o el valor en una iteración particular. Ejemplo:
+for _, value := range someSlice {
+    // Trabaja solo con el valor y omite el índice
+}
+
+Declarar una variable que no se usará:
+Si necesitas declarar una variable en Go debido a la estructura de un programa, pero no planeas utilizarla más adelante, puedes utilizar el identificador en blanco para evitar errores de compilación relacionados con variables no utilizadas. Ejemplo:
+_ := 10 // Declara una variable que no será utilizada
+
+En resumen sobre _ , Recuerda que el identificador en blanco _ no puede ser utilizado para declarar variables que luego se usen o para acceder a campos o métodos en estructuras. Su función principal es indicar que un valor se está descartando intencionalmente.
+
+if there is a lot of strings, we can use the join function
+example: fmt.Println(strings.Join(os.Args), "")
