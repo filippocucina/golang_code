@@ -1,0 +1,3 @@
+En Golang no existe los while loops, tampoco los do-while loops. Lo unico que conseguimos en el lenguaje como iterador es el for loop. Ahora El for loop puede ser usado como condicion, tipo while loop.
+
+En cambio, Go utiliza solo el bucle "for" para realizar iteraciones. Sin embargo, como mencioné anteriormente, el bucle "for" en Go es muy flexible y puede usarse para emular diferentes tipos de bucles, incluido el comportamiento del bucle "do-while" y "while".
