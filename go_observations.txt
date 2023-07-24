@@ -62,3 +62,23 @@ En resumen sobre _ , Recuerda que el identificador en blanco _ no puede ser util
 
 if there is a lot of strings, we can use the join function
 example: fmt.Println(strings.Join(os.Args), "")
+
+fmt es la libreria de Go para formatear y mostrar texto en la consola y otros flujos de salida. Aqui estan las funciones mas comunes del paquete fmt:
+
+1-func Print(): Imprime los valores proporcionados sin formato en la consola
+
+2-func Printf(format string, a...interface{}): Imprime los valores proporcionados segun el formato especificado en la cadena "format". Similar a 'Print', pero permite el formateo
+
+3-func Println(a...interface{}): imprime los valores proporcionados en la consola, agregando una nueva lineal al final
+
+4-func Sprint(a...interface{}) string: Retorna una cadena formateada con los valores proporcionados sin imprimir en la consola. En otras palabras, concatena Strings. En vez de usae "Hola" + "Mundo", usas fmt.Sprint(variable_A, variable_B)
+
+fmt.Sprint is good for concatenation different types of its parameters as it uses reflection under the hood. So, if you need to concat strings - use "+", it's much faster, but if you need to contact number and your profit fmt.Sprint just like that:
+
+message := fmt.Sprint(500, "internal server error")
+
+func Sprintf(format string, a ...interface{}) string
+Retorna una cadena formateada con los valores proporcionados según el formato especificado, sin imprimirlos en la consola.
+
+func Sprintln(a ...interface{}) string
+Retorna una cadena formateada con los valores proporcionados, agregando una nueva línea al final, sin imprimirlos en la consola.
